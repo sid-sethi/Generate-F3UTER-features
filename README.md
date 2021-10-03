@@ -1,12 +1,12 @@
 # Pipeline for calculating omic features required by F3UTER
 
-This `snakemake` pipeline generate omic features for a set of input candidate regions. The omic features can be broadly categorised as either genomic or transcriptomic in nature. Features calculated from genomic data included poly(A) signal occurrence, DNA sequence conservation, mono-/di-nucleotide frequency, transposon occurrence and DNA structural properties. Features calculated from transcriptomic data included entropy efficiency of the mapped reads (EE) - a measure of the uniformity of read coverage over a genomic region, and percentage difference (a measure of the absolute difference) between the reads mapped at the boundaries (PD).
+This `snakemake` pipeline generates omic features for a set of input candidate regions. The omic features can be broadly categorised as either genomic or transcriptomic in nature. Features calculated from genomic data included poly(A) signal occurrence, DNA sequence conservation, mono-/di-nucleotide frequency, transposon occurrence and DNA structural properties. Features calculated from transcriptomic data include entropy efficiency of the mapped reads (EE) - a measure of the uniformity of read coverage over a genomic region, and percentage difference (a measure of the absolute difference) between the reads mapped at the boundaries (PD).
 
 # Getting Started
 
 ## Input
 
-- Regions of interest: Can be ERs (output of [Generate ERs](https://github.com/sid-sethi/Generate-ERs)) or a standard BED file. If a BED file, it must contain at least the following columns - `seqnames`, `start`, `end`, `strand` and `ER_id`. Please see `/test_data` for a demo file. Please note that contig names in BED file should be UCSC style: `chr1`, `chr2` .... `chrM`.
+- Regions of interest: can be ERs (output of [Generate ERs](https://github.com/sid-sethi/Generate-ERs)) or a standard BED file. If a BED file, it must contain at least the following columns - `seqnames`, `start`, `end`, `strand` and `ER_id`. Please see `/test_data` for a demo file. Please note that contig names in BED file should be UCSC style: `chr1`, `chr2` .... `chrM`.
 - Aligned RNA-seq reads in bigwig format to calculate the expression features. Multiple RNA-seq replicates can be provided. In case of multiple bigwigs, mean expression will be calculated. Please note that contig names in the bigwig should be Ensembl style: `1`, `2`.... `MT`.
 - chromosome lengths are required by the code. A file containing chromosome lengths for hg38 is provided in `/data` and is automatically used by the pipeline.
 
