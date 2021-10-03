@@ -55,7 +55,7 @@ for(tissue in tissues){
                  )
 
   er.export = bind_cols(er, er.nf, dinf) %>%
-    dplyr::select(ER_id:CG) %>%
+    dplyr::select(ER_id, A:CG) %>%
     mutate(tissue = tissue) %>%
     plyr::rename(c("ER_id" = "id"))
 
